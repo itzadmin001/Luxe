@@ -18,7 +18,7 @@ function Header() {
 
     return (
         <header className="w-full shadow-md sticky top-0  z-20  bg-white">
-            <div className=' p-2 bg-black text-white text-center uppercase hover:underline cursor-pointer'>
+            <div className=' p-2 bg-gray-400 text-white text-center uppercase hover:underline cursor-pointer'>
                 <h1>Free Shopping on orders $56 </h1>
             </div>
             <Container clasess=" mx-auto flex justify-between items-center py-6">
