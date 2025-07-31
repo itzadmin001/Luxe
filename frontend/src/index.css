@@ -3,3 +3,16 @@
 body {
     user-select: none;
 }
+
+.slick-prev::before {
+    color: gray !important;
+    /* change arrow color */
+    font-size: 30px !important;
+    /* increase size if needed */
+}
+
+/* slick-next (right arrow) */
+.slick-next::before {
+    color: gray !important;
+    font-size: 30px !important;
+}

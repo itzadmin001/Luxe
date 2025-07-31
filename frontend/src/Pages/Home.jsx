@@ -17,6 +17,7 @@ function Home() {
             <BestSaller />
             <NewStyle />
             <DraftCollection />
+            <LuxCollection />
         </div>
     )
 }
@@ -68,7 +69,7 @@ const Summercollection = () => {
 
     return (
         <section className="w-full h-[100vh]">
-            <Container clasess="  w-full h-full mt-10 flex flex-col items-center gap-15">
+            <Container clasess="w-full h-full mt-10 flex flex-col items-center gap-15">
                 <div className=" grid md:grid-cols-4 grid-cols-2 gap-5 font-semibold">
                     {
                         imgdetails.map((item, i) => {
@@ -206,12 +207,45 @@ const BestSaller = () => {
     ]
 
 
-
+    var settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    }
     return (
         <section className=" w-full h-[80vh] ">
-            <div>
-                <SlickSlider items={BestSallardetails} />
-            </div>
+            <Container>
+                <SlickSlider items={BestSallardetails} title="BestSallar" settings={settings} />
+            </Container>
         </section>
     )
 }
@@ -219,7 +253,7 @@ const BestSaller = () => {
 
 const NewStyle = () => {
     return (
-        <section className="w-full h-[100vh] overflow-hidden">
+        <section className="w-full min-h-[100vh] overflow-hidden">
             <Container classes="w-full h-full">
                 <div className="grid grid-cols-2 gap-2 h-full">
                     <div className="h-full relative">
@@ -229,7 +263,7 @@ const NewStyle = () => {
                             src="https://cdn.shopify.com/s/files/1/1464/5034/files/Classic-Fit.jpg?v=1752513265&quality=75&width=1800&crop=center"
                             alt=""
                         />
-                        <div className="w-full absolute left-5 bottom-50 mb-5 text-white z-10">
+                        <div className="w-full absolute left-5 bottom-10 mb-5 text-white z-10">
                             <h3 className=" text-2xl  font-semibold">New Fit Timeless Style</h3>
                             <h1 className="text-3xl font-bold mb-5">Lux Classic Fit </h1>
                             <ShopNowButton title="Shop Now" />
@@ -249,14 +283,14 @@ const NewStyle = () => {
                                 <ShopNowButton title="Shop Now" />
                             </div>
                         </div>
-                        <div className="flex-1 overflow-hidden relative">
+                        <div className="flex-1 w-full h-full  relative">
                             <img
                                 loading="lazy"
                                 className="w-full h-full object-contain rounded-md"
                                 src="https://cdn.shopify.com/s/files/1/1464/5034/files/Gronk_Underwear_SD_9eae7758-c75a-427b-9ef6-24a4b6f6454e.jpg?v=1752645460&quality=75&width=1800&crop=center"
                                 alt=""
                             />
-                            <div className="w-full absolute left-5 bottom-50 mb-5 text-white z-10">
+                            <div className="w-full absolute left-5 bottom-10 mb-5 text-white z-10">
                                 <h3 className=" text-2xl  font-semibold">New Fit Timeless Style</h3>
                                 <h1 className="text-3xl font-bold mb-5">Lux Classic Fit </h1>
                                 <ShopNowButton title="Shop Now" />
@@ -270,9 +304,81 @@ const NewStyle = () => {
 }
 
 const DraftCollection = () => {
-    return (
-        <section className="w-full border-2">
 
+    var settings = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        arrows: true,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 800,
+        autoplaySpeed: 3500,
+        cssEase: "ease-in-out"
+    };
+    const data = [
+        {
+            heading: "“Easy to Style and Durable”",
+            des: "Entrepreneur",
+
+        },
+        {
+            heading: "“Crafted for Go-Getters”",
+            des: "Forbes"
+        },
+        {
+            heading: "“Paving the way for men's fashion”",
+            des: "Men's Journal"
+        }
+    ]
+
+    return (
+        <section className="w-full  min-h-[100vh]">
+            <Container clasess="mt-20">
+                <div className="relative">
+                    <img className="w-full h-full object-co" src="https://cdn.shopify.com/s/files/1/1464/5034/files/Drift_10f26bbe-2c5b-4793-8ed3-ddb22ca5c711.jpg?v=1752513265&quality=75&width=1400&crop=center" alt="" />
+                    <div className="absolute left-10 bottom-10 text-white">
+                        <div className="flex flex-col gap-3 mb-5">
+                            <h3 className=" font-semibold text-2xl">The Softest Styles</h3>
+                            <h1 className=" text-4xl font-bold">Drift Collection</h1>
+                        </div>
+                        <ShopNowButton title="Shop Now" />
+                    </div>
+                </div>
+                <div className="mt-20">
+                    <SlickSlider items={data} title="quality" settings={settings} />
+                </div>
+            </Container>
+        </section>
+    )
+}
+
+
+const LuxCollection = () => {
+    return (
+        <section className="w-full min-h-[100vh] ">
+            <Container clasess="mt-20">
+                <BestSaller />
+                <div className="w-full relative">
+                    <img
+                        loading="lazy"
+                        src="https://cdn.shopify.com/s/files/1/1464/5034/files/Best-Sellers_60f63c4b-0380-4843-aa07-9c854dd84327.jpg?v=1752513264&quality=75&width=2200&crop=center"
+                        alt=""
+                        className="w-full object-cover rounded-md"
+                    />
+
+                    <div className="absolute inset-0 z-10 flex items-center justify-center text-white">
+                        <div className="text-center">
+                            <p className="text-xl">Essentials for Every Moment</p>
+                            <h1 className="text-6xl font-semibold">Best Sellers</h1>
+                            <div className="mt-4 flex justify-center gap-4">
+                                <ShopNowButton title="Men" />
+                                <ShopNowButton title="Women" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
         </section>
     )
 }

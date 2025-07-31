@@ -1,4 +1,3 @@
-import React from 'react'
 
 function ShopNowButton({ title }) {
     return (
