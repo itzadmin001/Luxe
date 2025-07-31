@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
 import { FaHeart, FaShoppingCart, FaBars, FaTimes, FaRegUserCircle } from 'react-icons/fa';
 const Container = lazy(() => import("./Container"))
 import { Link } from 'react-router-dom';
@@ -15,10 +15,24 @@ const menuItems = [
 
 function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [navColor, SetNavColor] = useState(false)
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                SetNavColor(true);
+            } else SetNavColor(false)
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
 
     return (
-        <header className="w-full shadow-md sticky top-0  z-20  bg-white">
-            <div className=' p-2 bg-gray-400 text-white text-center uppercase hover:underline cursor-pointer'>
+        <header className={`w-full fixed top-0 duration-300 z-20 ${navColor ? "bg-white shadow-md text-black " : "bg-transparent text-white"}`} >
+            <div className=' p-2 bg-[#252533] text-white text-center uppercase hover:underline cursor-pointer'>
                 <h1>Free Shopping on orders $56 </h1>
             </div>
             <Container clasess=" mx-auto flex justify-between items-center py-6">
@@ -48,7 +62,7 @@ function Header() {
 
 
 
-                <div className="flex items-center gap-4 text-xl">
+                <div className="flex items-center gap-4 text-2xl">
                     <FaHeart className="cursor-pointer hover:text-red-500 duration-300" />
                     <FaRegUserCircle className="cursor-pointer" />
                     <FaShoppingCart className="cursor-pointer hover:text-blue-500 duration-300" />
