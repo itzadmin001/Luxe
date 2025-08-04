@@ -103,6 +103,7 @@ function Footer() {
                     >
                         <FaGithub />
                     </Link>
+
                     <Link
                         to="https://linkedin.com/in/yogesh-kumar-558b4b26b/"
                         target="_blank"

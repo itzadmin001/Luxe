@@ -37,5 +37,4 @@ function App() {
     <RouterProvider router={route} />
   )
 }
-
 export default App

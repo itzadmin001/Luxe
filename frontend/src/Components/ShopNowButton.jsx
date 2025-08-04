@@ -6,3 +6,4 @@ function ShopNowButton({ title }) {
 }
 
 export default ShopNowButton
+
